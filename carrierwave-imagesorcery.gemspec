@@ -9,8 +9,8 @@ Gem::Specification.new do |gem|
   gem.homepage = "http://www.waydotnet.com"
 
   gem.extra_rdoc_files = ["README.md"]
-  # gem.rdoc_options = ["--main"]
-  gem.add_development_dependency "rspec" #, "~> 2.10.0"
+  gem.rdoc_options = ["--main"]
+  gem.add_development_dependency "rspec"
 
   gem.add_dependency 'carrierwave'
   gem.add_dependency 'image_sorcery'

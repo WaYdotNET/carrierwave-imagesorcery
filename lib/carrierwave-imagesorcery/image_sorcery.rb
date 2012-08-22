@@ -62,8 +62,13 @@ module CarrierWave
     def resize_to_limit(width, height)
       manipulate! do |img|
         img.manipulate!(:resize => "#{width}x#{height}>")
-        img = yield(img) if block_given?
-        img
+        # img = yield(img) if block_given?
+        if img
+          img
+        else
+          raise CarrierWave::ProcessingError , I18n.translate(:"errors.messages.imagesorcery_processing_error")
+        end
+        # img
       end
     end
 
@@ -82,7 +87,12 @@ module CarrierWave
       manipulate! do |img|
         img.manipulate!(:resize => "#{width}x#{height}")
         img = yield(img) if block_given?
-        img
+        if img
+          img
+        else
+          raise CarrierWave::ProcessingError , I18n.translate(:"errors.messages.imagesorcery_processing_error")
+        end
+        # img
       end
     end
 
@@ -147,12 +157,18 @@ module CarrierWave
       end
     end
 
+    def dimensions
+       manipulate! do |img|
+        img.dimensions
+      end
+    end
+
     def manipulate!
       cache_stored_file! if !cached?
       image = Sorcery.new current_path
       image = yield(image)
     rescue RuntimeError, StandardError => e
-      raise CarrierWave::ProcessingError #, I18n.translate(:"errors.messages.image_sorcery_processing_error", :e => e)
+      raise CarrierWave::ProcessingError , I18n.translate(:"errors.messages.imagesorcery_processing_error", :e => e)
     end
   end
 end
