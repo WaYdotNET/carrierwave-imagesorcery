@@ -1,6 +1,6 @@
 # CarrierWave::ImageSorcery
 
-Additional processing to use [ImageSorcery](https://github.com/EricR/image_sorcery) with [CarrierWave](https://github.com/jnicklas/carrierwave).
+Additional processing to use [ImageSorcery](https://github.com/EricR/image_sorcery) into [CarrierWave](https://github.com/jnicklas/carrierwave).
 
 ## Installation
 
@@ -29,6 +29,7 @@ To use those, you should include specified module (ImageSorcery) into your uploa
 ## Method implemented
 
     convert
+    dimensions
     resize_to_limit
     resize_to_fit
     resize_to_fill
@@ -50,13 +51,21 @@ To use those, you should include specified module (ImageSorcery) into your uploa
 
 An example to implement custom method
 
+
     class Uploader < CarrierWave::Uploader::Base
-
     include CarrierWave::ImageSorcery
-
     process :watermark_text
 
-
+    def watermark_text(text = "© #{Time.now.year} - Carlo Bertini [WaYdotNET]")
+      manipulate! do |img|
+        args  = {
+          font: 'Helvetica', fill: 'white', stroke: '#00770080',
+          gravity: 'South', pointsize: 20, draw: " text 0,0 \"#{text}\" "
+        }
+        img.manipulate! args
+        img
+      end
+    end
 
 
 ## Contributing
