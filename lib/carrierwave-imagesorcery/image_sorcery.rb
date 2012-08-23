@@ -21,7 +21,7 @@ module CarrierWave
         process :resize_to_fill => [width, height, gravity]
       end
 
-      def resize_and_pad(width, height, background=:transparent, gravity=::Magick::CenterGravity)
+      def resize_and_pad(width, height, background=:transparent, gravity='Center')
         process :resize_and_pad => [width, height, background, gravity]
       end
     end
@@ -62,13 +62,8 @@ module CarrierWave
     def resize_to_limit(width, height)
       manipulate! do |img|
         img.manipulate!(:resize => "#{width}x#{height}>")
-        # img = yield(img) if block_given?
-        if img
-          img
-        else
-          raise CarrierWave::ProcessingError , I18n.translate(:"errors.messages.imagesorcery_processing_error")
-        end
-        # img
+        img = yield(img) if block_given?
+        img
       end
     end
 
@@ -82,21 +77,15 @@ module CarrierWave
     # [width (Integer)] the width to scale the image to
     # [height (Integer)] the height to scale the image to
     #
-    #
     def resize_to_fit(width, height)
       manipulate! do |img|
         img.manipulate!(:resize => "#{width}x#{height}")
         img = yield(img) if block_given?
-        if img
-          img
-        else
-          raise CarrierWave::ProcessingError , I18n.translate(:"errors.messages.imagesorcery_processing_error")
-        end
-        # img
+        img
       end
     end
 
-##
+    ##
     # Resize the image to fit within the specified dimensions while retaining
     # the aspect ratio of the original image. If necessary, crop the image in the
     # larger dimension.
@@ -106,7 +95,6 @@ module CarrierWave
     # [width (Integer)] the width to scale the image to
     # [height (Integer)] the height to scale the image to
     # [gravity (String)] the current gravity suggestion (default: 'Center'; options: 'NorthWest', 'North', 'NorthEast', 'West', 'Center', 'East', 'SouthWest', 'South', 'SouthEast')
-    #
     #
     def resize_to_fill(width, height, gravity = 'Center')
       manipulate! do |img|
@@ -127,7 +115,7 @@ module CarrierWave
       end
     end
 
-##
+    ##
     # Resize the image to fit within the specified dimensions while retaining
     # the original aspect ratio. If necessary, will pad the remaining area
     # with the given color, which defaults to transparent (for gif and png,
