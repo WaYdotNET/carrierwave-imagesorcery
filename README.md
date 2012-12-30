@@ -2,6 +2,9 @@
 
 Additional processing to use [ImageSorcery](https://github.com/EricR/image_sorcery) into [CarrierWave](https://github.com/jnicklas/carrierwave).
 
+[![Build Status](https://travis-ci.org/WaYdotNET/carrierwave-imagesorcery.png)](https://travis-ci.org/WaYdotNET/carrierwave-imagesorcery)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/WaYdotNET/carrierwave-imagesorcery)
+
 ## Installation
 
 Add this line to your application's Gemfile:
