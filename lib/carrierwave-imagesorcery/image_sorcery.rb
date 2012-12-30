@@ -155,8 +155,18 @@ module CarrierWave
       cache_stored_file! if !cached?
       image = Sorcery.new current_path
       image = yield(image)
+
+      replace_file(image.file) if !image.is_a?(Hash) && image.filename_changed?
+
+      image
     rescue RuntimeError, StandardError => e
       raise CarrierWave::ProcessingError , I18n.translate(:"errors.messages.imagesorcery_processing_error", :e => e)
+    end
+
+    private
+
+    def replace_file(file)
+      FileUtils.move Dir.glob(file).first, current_path
     end
   end
 end
