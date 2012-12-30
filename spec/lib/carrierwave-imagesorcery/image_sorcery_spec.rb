@@ -20,13 +20,13 @@ describe CarrierWave::ImageSorcery do
   end
 
   after do
-    FileUtils.rm(file_path('landscape_copy.jpg'))
+    FileUtils.rm([file_path('landscape_copy.jpg'), file_path('landscape_copy.png')], :force => true)
   end
 
   describe "#convert" do
     it "should convert from one format to another" do
-      @instance.convert('foo.png')
-      img = Sorcery.new file_path('foo.png')
+      @instance.convert('png')
+      img = Sorcery.new file_path('landscape_copy.png')
       img.identify.should =~ /PNG/
     end
   end
