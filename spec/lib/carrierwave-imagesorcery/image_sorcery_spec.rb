@@ -26,7 +26,7 @@ describe CarrierWave::ImageSorcery do
   describe "#convert" do
     it "should convert from one format to another" do
       @instance.convert('png')
-      img = Sorcery.new file_path('landscape_copy.png')
+      img = Sorcery.new @instance.current_path
       img.identify.should =~ /PNG/
     end
   end
