@@ -10,7 +10,9 @@ Gem::Specification.new do |gem|
 
   gem.extra_rdoc_files = ["README.md"]
   gem.rdoc_options = ["--main"]
-  gem.add_development_dependency "rspec"
+  gem.add_development_dependency 'rspec', '~> 2.12.0'
+  gem.add_development_dependency 'rake','~> 10.0.2'
+  gem.add_development_dependency 'subexec', '~> 0.2.2'
 
   gem.add_dependency 'carrierwave'
   gem.add_dependency 'image_sorcery'
