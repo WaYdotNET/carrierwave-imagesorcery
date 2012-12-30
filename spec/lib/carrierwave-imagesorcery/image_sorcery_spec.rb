@@ -20,7 +20,7 @@ describe CarrierWave::ImageSorcery do
   end
 
   after do
-    FileUtils.rm([file_path('landscape_copy.jpg'), file_path('landscape_copy.png')])
+    FileUtils.rm([file_path('landscape_copy.jpg'), file_path('landscape_copy.png')], :force => true)
   end
 
   describe "#convert" do
