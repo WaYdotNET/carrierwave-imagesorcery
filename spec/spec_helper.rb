@@ -12,5 +12,5 @@ def file_path(*paths)
 end
 
 def check_dimension(x, y)
-  {:x => "#{x}", :y => "#{y}"}
+  {:x => x, :y => y}
 end
