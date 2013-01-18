@@ -89,7 +89,7 @@ WaYdotNET, you can follow me on twitter [@WaYdotNET](http://twitter.com/WaYdotNE
 
 ## Copyright
 
-Copyright (C) 2012 Carlo Bertini - [@WaYdotNET](http://twitter.com/WaYdotNET)
+Copyright (C) 2013 Carlo Bertini - [@WaYdotNET](http://twitter.com/WaYdotNET)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 associated documentation files (the “Software”), to deal in the Software without restriction, including without
