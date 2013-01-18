@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 require File.expand_path('../lib/carrierwave-imagesorcery/version', __FILE__)
 
 Gem::Specification.new do |gem|
@@ -12,10 +11,9 @@ Gem::Specification.new do |gem|
   gem.rdoc_options = ["--main"]
   gem.add_development_dependency 'rspec', '~> 2.12.0'
   gem.add_development_dependency 'rake','~> 10.0.2'
-  gem.add_development_dependency 'subexec', '~> 0.2.2'
 
   gem.add_dependency 'carrierwave'
-  gem.add_dependency 'image_sorcery'
+  gem.add_dependency 'image_sorcery','>= 1.1.0'
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

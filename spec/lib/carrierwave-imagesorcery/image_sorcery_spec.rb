@@ -1,7 +1,6 @@
 # # require_relative '../../spec_helper'
 # # For Ruby < 1.9.3, use this instead of require_relative
 require (File.expand_path('./../../../spec_helper', __FILE__))
-require 'subexec'
 
 class Uploader  < CarrierWave::Uploader::Base
   include CarrierWave::ImageSorcery
@@ -26,7 +25,7 @@ describe CarrierWave::ImageSorcery do
   describe "#convert" do
     it "should convert from one format to another" do
       @instance.convert('png')
-      img = Sorcery.new @instance.current_path
+      img = ImageSorcery.new @instance.current_path
       img.identify.should =~ /PNG/
     end
   end

@@ -1,7 +1,4 @@
 require 'rubygems' unless defined? Gem
-# we need the actual library file
-# require_relative '../lib/ms_translate'
-# For Ruby < 1.9.3, use this instead of require_relative
 require 'bundler/setup'
 require 'carrierwave'
 

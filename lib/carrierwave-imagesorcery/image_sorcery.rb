@@ -153,7 +153,7 @@ module CarrierWave
 
     def manipulate!
       cache_stored_file! if !cached?
-      image = Sorcery.new current_path
+      image = ::ImageSorcery.new current_path
       image = yield(image)
 
       replace_file(image.file) if !image.is_a?(Hash) && image.filename_changed?
