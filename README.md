@@ -2,7 +2,7 @@
 
 Additional processing to use [ImageSorcery](https://github.com/EricR/image_sorcery) into [CarrierWave](https://github.com/jnicklas/carrierwave).
 
-[![Gem Version](https://badge.fury.io/rb/image_sorcery.png)](http://badge.fury.io/rb/image_sorcery)
+[![Gem Version](https://badge.fury.io/rb/carrierwave-imagesorcery.png)](http://badge.fury.io/rb/image_sorcery)
 [![Build Status](https://travis-ci.org/WaYdotNET/carrierwave-imagesorcery.png)](https://travis-ci.org/WaYdotNET/carrierwave-imagesorcery)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/WaYdotNET/carrierwave-imagesorcery)
 
