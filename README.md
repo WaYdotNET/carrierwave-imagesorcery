@@ -5,6 +5,7 @@ Additional processing to use [ImageSorcery](https://github.com/EricR/image_sorce
 [![Gem Version](https://badge.fury.io/rb/carrierwave-imagesorcery.png)](http://badge.fury.io/rb/image_sorcery)
 [![Build Status](https://travis-ci.org/WaYdotNET/carrierwave-imagesorcery.png)](https://travis-ci.org/WaYdotNET/carrierwave-imagesorcery)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/WaYdotNET/carrierwave-imagesorcery)
+[![Coverage Status](https://coveralls.io/repos/WaYdotNET/carrierwave-imagesorcery/badge.png)](https://coveralls.io/r/WaYdotNET/carrierwave-imagesorcery)
 
 ## Installation
 
