@@ -4,7 +4,8 @@ rvm:
  - 2.2
  - 2.3.1
  - ruby-head
- - jruby-21mode
+ - jruby-9.0.0.0.pre2
+
 
 before_install:
  - sudo apt-get update -qq
