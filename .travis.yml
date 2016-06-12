@@ -5,7 +5,6 @@ rvm:
  - 2.2
  - 2.3.1
  - ruby-head
- - jruby-9.0.0.0.pre2
 
 addons:
   apt:
@@ -14,8 +13,6 @@ addons:
     - imagemagick
 
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq -y graphicsmagick imagemagick
  - gem install bundler
 
 matrix:
