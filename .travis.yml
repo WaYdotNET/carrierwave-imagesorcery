@@ -1,4 +1,5 @@
 language: ruby
+sudo: true
 cache: bundler
 rvm:
  - 2.2
@@ -6,6 +7,11 @@ rvm:
  - ruby-head
  - jruby-9.0.0.0.pre2
 
+addons:
+  apt:
+    packages:
+    - graphicsmagick
+    - imagemagick
 
 before_install:
  - sudo apt-get update -qq
