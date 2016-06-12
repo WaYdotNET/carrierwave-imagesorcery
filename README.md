@@ -11,7 +11,9 @@ Additional processing to use [ImageSorcery](https://github.com/EricR/image_sorce
 
 Add this line to your application's Gemfile:
 
-    gem 'carrierwave-imagesorcery'
+```ruby
+gem 'carrierwave-imagesorcery'
+```
 
 And then execute:
 
@@ -25,53 +27,57 @@ Or install it yourself as:
 
 To use those, you should include specified module (ImageSorcery) into your uploader and use processors:
 
-    class AvatarUploader < CarrierWave::Uploader::Base
-      include CarrierWave::ImageSorcery
-      .....
-
-    end
+```ruby
+class AvatarUploader < CarrierWave::Uploader::Base
+  include CarrierWave::ImageSorcery
+  # .....
+end
+```
 
 ## Method implemented
 
-    convert
-    dimensions
-    resize_to_limit
-    resize_to_fit
-    resize_to_fill
-    resize_and_pad
+```ruby
+convert
+dimensions
+resize_to_limit
+resize_to_fit
+resize_to_fill
+resize_and_pad
+```
 
 ## Example
 
-    class Uploader < CarrierWave::Uploader::Base
-    ##
-    # Image manipulator library:
-    include CarrierWave::ImageSorcery
+```ruby
+class Uploader < CarrierWave::Uploader::Base
+  # Image manipulator library:
+  include CarrierWave::ImageSorcery
 
-    process :resize_and_pad => [900,300,"#ffeecc", 'South']
-    process :resize_to_fit => [1024, 768]
-
-    end
+  process :resize_and_pad => [900,300,"#ffeecc", 'South']
+  process :resize_to_fit => [1024, 768]
+end
+```
 
 ## Example custom method
 
 An example to implement custom method
 
+```ruby
+class Uploader < CarrierWave::Uploader::Base
+  include CarrierWave::ImageSorcery
+  process :watermark_text
 
-    class Uploader < CarrierWave::Uploader::Base
-    include CarrierWave::ImageSorcery
-    process :watermark_text
-
-    def watermark_text(text = "© #{Time.now.year} - Carlo Bertini [WaYdotNET]")
-      manipulate! do |img|
-        args  = {
-          font: 'Helvetica', fill: 'white', stroke: '#00770080',
-          gravity: 'South', pointsize: 20, draw: " text 0,0 \"#{text}\" "
-        }
-        img.manipulate! args
-        img
-      end
+  def watermark_text(text = "© #{Time.now.year} - Carlo Bertini [WaYdotNET]")
+    manipulate! do |img|
+      args  = {
+        font: 'Helvetica', fill: 'white', stroke: '#00770080',
+        gravity: 'South', pointsize: 20, draw: " text 0,0 \"#{text}\" "
+      }
+      img.manipulate! args
+      img
     end
-
+  end
+end
+```
 
 ## Contributing
 
@@ -104,6 +110,4 @@ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO 
 DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/WaYdotNET/carrierwave-imagesorcery/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
