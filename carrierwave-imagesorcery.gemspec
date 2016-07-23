@@ -8,7 +8,6 @@ Gem::Specification.new do |gem|
   gem.description = "CarrierWave Additional processing to support ImageSorcery"
   gem.summary = "ImageSorcery carrierwave processor"
   gem.homepage = "http://www.waydotnet.com"
-  gem.platform       = Gem::Platform::RUBY
 
   gem.extra_rdoc_files = ["README.md"]
   gem.rdoc_options = ["--main"]
