@@ -5,8 +5,8 @@ module CarrierWave
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def convert(format)
-        process :convert => format
+      def convert(format, layer)
+        process :convert => [format, layer]
       end
 
       def resize_to_limit(width, height)
@@ -40,9 +40,9 @@ module CarrierWave
     #
     #  image.convert(:png)
     #
-    def convert(format)
+    def convert(format, layer = 0)
       manipulate! do |img|
-        img.manipulate!(:format => format.to_s.downcase)
+        img.manipulate!(:format => format.to_s.downcase, layer: layer.to_i)
         img = yield(img) if block_given?
         img
       end
